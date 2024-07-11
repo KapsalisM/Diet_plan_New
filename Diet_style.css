@@ -1,0 +1,167 @@
+
+/* styles.css */
+
+/* Body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.log-out{
+    position:fixed;
+    background-color: #0056b3;;
+    top:20px;
+    right:10px;
+    width:65px;
+    height: 60px;
+    border: radius 30px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.calendar{
+    position:fixed;
+    background-color: #0056b3;;
+    color:white;
+    top:20px;
+    right:110px;
+    width:165px;
+    font-size: 16px;
+    height: 60px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+h1 {
+    text-align: center;
+    color: #333333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555555;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333333;
+    font-size: 16px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #333333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+/* Styling for the result section */
+#result {
+    display: none;
+}
+
+.result-heading {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333333;
+}
+
+.result-content {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-heading h2 {
+    margin-top: 0;
+}
+
+.macronutrients {
+    margin-bottom: 20px;
+}
+
+.macronutrients h3 {
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+.macronutrients table {
+    margin-bottom: 10px;
+}
+
+.meal-plan {
+    color: #555555;
+}
+
+/* Styling for the Export PDF button */
+#exportPDF {
+    background-color: #28a745;
+}
+
+#exportPDF:hover {
+    background-color: #218838;
+}
+

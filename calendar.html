@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dietician Booking Calendar</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" type="text/css" href="Calendar_style.css">
+</head>
+<body>
+    <h1>Dietician Booking Calendar</h1>
+    <button type="button" class="Main_page" onclick="location.href='Diet_Plan.html'">Main page</button>
+    <button type="button" class="log-out" onclick="location.href='Sign_in.html'">Log out</button>
+    <div id='calendar'></div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDHukiTPtFgulv8O7oUpWKbOO9k9yA0N6c",
+            authDomain: "sing-diet.firebaseapp.com",
+            projectId: "sing-diet",
+            storageBucket: "sing-diet.appspot.com",
+            messagingSenderId: "464547511431",
+            appId: "1:464547511431:web:70981d43903816f7808c22"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+
+        // Initialize FullCalendar
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                selectable: true,
+                selectHelper: true,
+                events: [],
+                select: function(info) {
+                    var name = prompt('Enter your name:');
+                    var lastName = prompt('Enter your last name:');
+                    var eventData;
+                    if (name && lastName) {
+                        eventData = {
+                            title: name + ' ' + lastName,
+                            start: info.startStr,
+                            end: info.endStr
+                        };
+                        calendar.addEvent(eventData);
+
+                        db.collection('bookings').add(eventData)
+                            .then(() => {
+                                console.log('Booking added to Firestore');
+                            })
+                            .catch(error => {
+                                console.error('Error adding booking to Firestore: ', error);
+                            });
+                    }
+                    calendar.unselect();
+                },
+                eventClick: function(info) {
+                    if (confirm("Do you want to remove this booking?")) {
+                        info.event.remove();
+                        db.collection('bookings').where("title", "==", info.event.title).where("start", "==", info.event.start.toISOString())
+                            .get()
+                            .then(querySnapshot => {
+                                querySnapshot.forEach(doc => {
+                                    db.collection('bookings').doc(doc.id).delete()
+                                        .then(() => {
+                                            console.log('Booking removed from Firestore');
+                                        })
+                                        .catch(error => {
+                                            console.error('Error removing booking from Firestore: ', error);
+                                        });
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error finding booking in Firestore: ', error);
+                            });
+                    }
+                }
+            });
+
+            calendar.render();
+            db.collection('bookings').get().then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                    var event = doc.data();
+                    calendar.addEvent(event);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

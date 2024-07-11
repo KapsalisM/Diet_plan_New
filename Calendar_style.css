@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.log-out{
+    position:fixed;
+    background-color: #0056b3;;
+    color:white;
+    font-size:16px;
+    top:20px;
+    right:10px;
+    width:65px;
+    height: 60px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+.Main_page{
+    position:fixed;
+    background-color: #0056b3;;
+    color:white;
+    top:20px;
+    right:110px;
+    width:165px;
+    font-size: 16px;
+    height: 60px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+#calendar {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+.fc-toolbar-title {
+    font-size: 24px;
+    color: #007BFF;
+}
+.fc-button {
+    background-color: #007BFF !important;
+    border: none !important;
+    color: #fff !important;
+    padding: 10px 15px !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+}
+.fc-button:hover {
+    background-color: #0056b3 !important;
+}
+.fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active {
+    background-color: #0056b3 !important;
+}
+.fc-daygrid-event {
+    background-color: #28a745 !important;
+    border: none !important;
+    color: #fff !important;
+    padding: 5px 10px !important;
+    border-radius: 5px !important;
+}
+.fc-daygrid-event:hover {
+    background-color: #218838 !important;
+}
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+}

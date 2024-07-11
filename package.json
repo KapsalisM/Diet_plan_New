@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase": "^10.12.2",
+    "fullcalendar": "^5.9.0"
+  }
+}

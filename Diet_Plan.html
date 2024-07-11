@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Diet Plan</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="Diet_style.css">
+</head>
+<body>
+
+    <button type="button" class="log-out" onclick="location.href='Sign_in.html'">Log out</button>
+    <br></br>
+    <button type="button" class="calendar" onclick="location.href='calendar.html'">Calendar</button>
+<div class="container">
+    <h1>Custom Diet Plan</h1>
+    
+    <form id="dietForm">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        
+        <label for="height">Height:</label>
+        <input type="number" id="height" name="height" required><br><br>
+
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" name="weight" required><br><br>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br></br>
+
+        <label for="goal">Goal:</label>
+        <select id="goal" name="goal">
+            <option value="maintain">Maintain Weight</option>
+            <option value="lose">Lose Weight</option>
+            <option value="gain">Gain Weight</option>
+        </select><br><br>
+        
+        <label for="activity">Activity Level:</label>
+        <select id="activity" name="activity">
+            <option value="sedentary">Sedentary (little to no exercise)</option>
+            <option value="lightlyActive">Lightly active (exercise 1-3 days/week)</option>
+            <option value="moderatelyActive">Moderately active (exercise 3-5 days/week)</option>
+            <option value="veryActive">Very active (exercise 6-7 days/week)</option>
+            <option value="extraActive">Extra active (very hard exercise & physical job)</option>
+        </select><br><br>
+        
+        <button type="submit" id="calculate">Calculate</button>
+        <button type="button" id="recalculate">Recalculate</button>
+        <button type="button" id="exportPDF">Export PDF</button>
+    </form>
+    
+    <div id="result" style="display: none;">
+        <h2>Calorie Intake</h2>
+        <p id="calories"></p>
+        
+        <h2>Macronutrient Breakdown</h2>
+        <table>
+            <tr>
+                <th>Macronutrient</th>
+                <th>Grams</th>
+            </tr>
+            <tr>
+                <td>Protein</td>
+                <td id="protein"></td>
+            </tr>
+            <tr>
+                <td>Carbohydrates</td>
+                <td id="carbs"></td>
+            </tr>
+        </table>
+        
+        <h2>Diet Plan</h2>
+        <ul id="mealPlan"></ul>
+    </div>
+</div>
+
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDHukiTPtFgulv8O7oUpWKbOO9k9yA0N6c",
+    authDomain: "sing-diet.firebaseapp.com",
+    projectId: "sing-diet",
+    storageBucket: "sing-diet.appspot.com",
+    messagingSenderId: "464547511431",
+    appId: "1:464547511431:web:70981d43903816f7808c22"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+<script src="Diet_script.js"></script>
+
+
+</body>
+</html>
